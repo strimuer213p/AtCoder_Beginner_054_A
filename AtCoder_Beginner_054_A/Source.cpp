@@ -44,11 +44,11 @@ int main() {
 		}
 	}
 
-	/*
+	
 	for (auto&& x : mp) {
-		std::cout<<x.first<<" "<<x.second<<std::endl; //mpの確認
+		std::cout<<x.first<<" "<<x.second<<std::endl; //mpの確認(AtCoderには無駄な出力なのでコメント化した)
 	}
-	*/
+	
 
 	std::cin >> alice >> bob;
 
