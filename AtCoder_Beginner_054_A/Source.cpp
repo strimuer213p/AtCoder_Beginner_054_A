@@ -21,23 +21,34 @@ Alice‚ª‚Á‚Ä‚¢‚éƒJ[ƒh‚É‘‚©‚ê‚Ä‚¢‚é”‚Í A ABob‚ª‚Á‚Ä‚¢‚éƒJ[ƒhƒJ[ƒh‚É‘‚©‚
 #include<map>
 #include<string>
 
+//map‚Á‚Ä‚Ç‚±‚Åg‚¤‚Ì‚©‚í‚©‚ç‚È‚©‚Á‚½‚Ì‚ÅAmap‚ªg‚¦‚½–‚Æ‚±‚Ì”­‘z‚ª©—Í‚Åo‚Ä‚«‚ÄŠğ‚µ‚¢
+//‚ª‚à‚Á‚Æ“ª‚Ì—Ç‚¢•û–@‚È‚¢‚Å‚·‚©c
+
+//‚ ‚é’ö“x‡˜‚É]‚Á‚½”’l‚Ì‹­‚³”ä‚×
+
 int main() {
+	const int max = 13; //g—p‚·‚éƒgƒ‰ƒ“ƒv‚Í13–‡‚æ‚è@13
+	const int singularity = 1; //¡‰ñ‚Íƒ|[ƒJ[‚È‚Ì‚Å1‚ª“ÁˆÙ«@‘å•x‹‚Ìê‡‚É‚Í2‚ªˆê”Ô‹­‚¢‚Ì‚Å2‚ğ‚±‚±‚É‘ã“ü‚·‚é
+	const int adjustment = 1;  //ƒgƒ‰ƒ“ƒv‚Í‚P‚©‚çn‚Ü‚é‚Ì‚Å0‚©‚çn‚ß‚éƒvƒƒOƒ‰ƒ€‚É’²ß‚·‚é(1‚©‚çn‚ß‚Ä‚à‚¢‚¢‚Å‚·‚ªint i=1‚Á‚Ä‚©‚Á‚±ˆ«‚¢‚Ì‚Å‹p‰º int i=0  (¡‰ñ‚Ímp‚Ì‰Šú’l@mp[N]=1@‚©‚ç@mp[N]=0@‚É‚µ‚½))
+
 	int alice, bob;
 	std::string result;
 	std::map<int,int> mp;
-	mp[1] = 13;
-	mp[2] = 0;
-	mp[3] = 1;
-	mp[4] = 3;
-	mp[5] = 4;
-	mp[6] = 5;
-	mp[7] = 6;
-	mp[8] = 7;
-	mp[9] = 8;
-	mp[10] = 9;
-	mp[11] = 10;
-	mp[12] = 11;
-	mp[13] = 12;
+
+	for (int i = max; i > 0;i--) {
+		if (i > singularity) {
+			mp[i] = i - singularity - adjustment;  //max==13‚©‚çŒ¸‚Á‚Ä‚¢‚«
+		}
+		else {
+			mp[i] = max + i - singularity - adjustment;      //singularity‚æ‚è”’l‚ª¬‚³‚¢•û‚Æ‚«AŒ»İ‚ ‚éÅ‘å‚Ì”’l‚ÌŸ‚Ì”’l‚ğ‘ã“ü‚·‚é@ƒ|[ƒJ[(const int singularity = 1)‚ÌAu‚Pv‚Ì‹­‚³‚ªu12(0`12‚Ì13–‡‚Ì‚¤‚¿Å‹­)v@‘å•x‹(const singularity = 2)‚ÌAu1v‚Ì‹­‚³‚ªu11(0`12‚Ì13–‡‚Ì‚¤‚¿“ñ”Ô–Ú‚É‹­‚¢)Au2v‚Ì‹­‚³‚ªu12(0`12‚Ì13–‡‚Ì‚¤‚¿Å‹­)v
+		}
+	}
+
+	/*
+	for (auto&& x : mp) {
+		std::cout<<x.first<<" "<<x.second<<std::endl; //mp‚ÌŠm”F
+	}
+	*/
 
 	std::cin >> alice >> bob;
 
@@ -47,3 +58,21 @@ int main() {
 
 	return 0;
 }
+
+
+//è“®git_ver_1
+/*
+mp[2] = 0;
+mp[3] = 1;
+mp[4] = 2;
+mp[5] = 3;
+mp[6] = 4;
+mp[7] = 5;
+mp[8] = 6;
+mp[9] = 7;
+mp[10] = 8;
+mp[11] = 9;
+mp[12] = 10;
+mp[13] = 11;
+mp[1] = 12;
+*/
